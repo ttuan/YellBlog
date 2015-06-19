@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to image_tag("y2logo.png", alt: "Yell logo", :size => '60x50'),
-                'https://natumoblog.herokuapp.com', id: "logo" %>
+                root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
 
-        <li ><%= link_to "Home", '#', class: "glyphicon glyphicon-home" %> </li>
-        <li><%= link_to "Help",   '#', class: "glyphicon glyphicon-question-sign" %></li>
+        <li ><%= link_to "Home", root_path, class: "glyphicon glyphicon-home" %> </li>
+        <li><%= link_to "Help",   help_path, class: "glyphicon glyphicon-question-sign" %></li>
         <li><%= link_to "Log in", '#', class: "glyphicon glyphicon-hand-right" %></li>
       </ul>
     </nav>

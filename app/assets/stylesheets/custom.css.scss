@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
 
 /* universal */
 
@@ -25,10 +29,9 @@ textarea {
   text-align: center;
   background:transparent;
   color: #047316;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 /* typography */
@@ -70,13 +73,13 @@ p {
   padding-top: 9px;
   font-weight: bold;
   box-sizing: border-box;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 
 }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
 
 
 /* footer */
