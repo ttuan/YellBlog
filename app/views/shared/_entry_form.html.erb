@@ -1,0 +1,67 @@
+<html lang="en">
+
+<body>
+<%= form_for(@entry, html: { multipart: true }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+<div class="container">
+  <div class="row">
+      <hr>
+      <div  class="facebook-share-box">
+
+        <div class="share">
+          <div class="arrow"></div>
+          <div class="panel panel-default">
+
+            <div class="panel-heading"><i class="fa fa-file"></i> Update Entry</div>
+            <div class="panel-body">
+
+              <div class="">
+
+                <%= f.text_area :content, placeholder: "Compose new micropost...", class:"form-control message", style: "height: 62px" %>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="form-group">
+                    <div class="btn-group">
+                      <!--<button type="button" class="btn btn-default button"><i class="glyphicon glyphicon glyphicon-map-marker"></i> Location</button>-->
+                      <!--<button type="button" class="btn btn-default button" ><i class="glyphicon glyphicon-picture"></i> Photo</button>-->
+                      <span class="picture">
+                        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+                    </span>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <select name="privacy" class="form-control privacy-dropdown pull-left input-sm">
+                      <option value="1" selected="selected">Public</option>
+                      <option value="2">Only my friends</option>
+                      <option value="3">Only me</option>
+                    </select>
+
+                    <%= f.submit "Post", class: "btn btn-primary" %>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $('#entry_picture').bind('change', function() {
+        var size_in_megabytes = this.files[0].size/1024/1024;
+        if (size_in_megabytes > 5) {
+            alert('Maximum file size is 5MB. Please choose a smaller file.');
+        }
+    });
+</script>

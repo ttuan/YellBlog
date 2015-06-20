@@ -1,2 +1,20 @@
-<%= render 'layouts/bslide_show' %>
-<%= render 'layouts/footer' %>
+<% if logged_in? %>
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+        <section class="micropost_form">
+          <%= render 'shared/entry_form' %>
+        </section>
+      </aside>
+      <div class="col-md-6 col-md-offset-4 entry_top">
+        <h3>Entry Feed</h3>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
+<% else %>
+    <%= render 'layouts/bslide_show' %>
+    <%= render 'layouts/footer' %>
+<% end %>
+
