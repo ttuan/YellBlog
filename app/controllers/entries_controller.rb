@@ -20,13 +20,9 @@ class EntriesController < ApplicationController
   end
 
   def show
-    if !current_user.nil?
-      @entry = current_user.entries.find_by(id: params[:id])
-    else
-      # @entry = Entry.where("title = ?", title)
-      flash[:info] = "Please log in to see all of entry."  
-      redirect_to login_path
-    end
+    
+    @entry = current_entry
+    
   end
 
   def edit

@@ -30,6 +30,10 @@ module SessionsHelper
     end
   end
 
+  def current_entry
+    @current_entry ||= Entry.find_by(id: params[:id])
+  end
+
   # Returns true if the user is logged in
   def logged_in?
     !current_user.nil?

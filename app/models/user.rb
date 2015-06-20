@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
 
   has_many :entries, dependent: :destroy
-
+  has_many :comments, dependent: :destroy
 
   # Returns the hash digest of a given string
   def User.digest(string)
