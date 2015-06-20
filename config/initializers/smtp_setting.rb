@@ -4,6 +4,6 @@ ActionMailer::Base.smtp_settings = {
     :port           => 587,
     :domain         => 'gmail.com',
     :authentication => :plain,
-    :user_name      => 'yellblog.register@gmail.com',
-    :password       => 'Haianhanh1'
+    :user_name      => 'pizika005@gmail.com',
+    :password       => 'HAI ANHANH'
 }
