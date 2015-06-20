@@ -3,16 +3,16 @@
 <body>
 <%= form_for(@entry, html: { multipart: true }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-<div class="container">
-  <div class="row">
+<div class="container" align=center  >
+  <div class="row" >
       <hr>
-      <div  class="facebook-share-box">
+      <div  class="facebook-share-box1" align=center >
 
-        <div class="share">
+        <div class="share" >
           <div class="arrow"></div>
-          <div class="panel panel-default">
+          <div class="panel panel-default" >
 
-            <div class="panel-heading"><i class="fa fa-file"></i>  Share something ^^ </div>
+            <div class="panel-heading"><i class="fa fa-file"></i><font size="4"><b>  Edit Entry </b></font></div>
             <div class="panel-body">
               <div class="">
 
@@ -22,7 +22,7 @@
 
               <div class="">
 
-                <%= f.text_area :content, placeholder: "Compose new entry...", class:"form-control message", style: "height: 62px" %>
+                <%= f.text_area :content, placeholder: "Compose new entry...", class:"form-control message", style: "height: 300px" %>
               </div>
             </div>
             <div class="panel-footer">
@@ -47,7 +47,7 @@
                       <option value="3">Only me</option>
                     </select>
 
-                    <%= f.submit "Post", class: "btn btn-primary" %>
+                    <%= f.submit "Update", class: "btn btn-primary" %>
 
                   </div>
                 </div>

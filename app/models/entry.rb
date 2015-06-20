@@ -3,6 +3,7 @@ class Entry < ActiveRecord::Base
   default_scope -> { order(created_at: :desc)}
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
+  validates :title,   presence: true
   validates :content, presence: true, length: { maximum: 20000}
   validate  :picture_size
 

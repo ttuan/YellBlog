@@ -19,9 +19,33 @@ class EntriesController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def show
+    if !current_user.nil?
+      @entry = current_user.entries.find_by(id: params[:id])
+    else
+      # @entry = Entry.where("title = ?", title)
+      flash[:info] = "Please log in to see all of entry."  
+      redirect_to login_path
+    end
+  end
+
+  def edit
+    @entry = current_user.entries.find_by(id: params[:id])
+  end
+
+  def update
+    @entry = current_user.entries.find_by(id: params[:id])
+    if @entry.update_attributes(entry_params)
+      flash[:success] = "Entry updated."
+      redirect_to @entry
+    else
+      render 'edit'
+    end
+  end
+
   private
   def entry_params
-    params.require(:entry).permit(:content, :picture)
+    params.require(:entry).permit(:title, :content, :picture)
   end
 
   def correct_user

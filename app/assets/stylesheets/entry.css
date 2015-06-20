@@ -1,0 +1,30 @@
+.panel textarea, .well textarea, textarea.form-control
+{
+    resize: none;
+}
+
+.panel-default .panel-heading {
+    background-color:#f9fafb;
+    color:#555555;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#lots {
+    height: 120px;
+    width: 620px;
+    overflow: hidden; /* Limits amount of text being displayed */
+    margin: 0 auto;
+}
+
+.dropdown-menu-entry {
+    text-align: center;
+    background-color: #ffffff;
+    min-width: 0px;
+    width: 90px;
+    height: 100px !important;
+
+}

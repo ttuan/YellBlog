@@ -1,0 +1,26 @@
+<% provide(:title, @entry.title) %>
+<div class="row" style="margin-top: 20px;">
+  <aside class="col-md-offset-2 col-md-8">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <% if current_user?(@entry.user) %>
+        <%= render 'edit_entry_dropdown' %>
+      <% end %>
+      <h4 class="title" align="center"><%= @entry.title %></h4>
+  <p align="center">
+    Posted <%= time_ago_in_words(@entry.created_at) %> ago.
+  </p>
+    </div>
+    <div class="panel-body">
+      <!--<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>-->
+      <%= image_tag @entry.picture.url if @entry.picture? %>
+      <div id="clear-content">
+
+        <%= @entry.content %>
+      </div>
+
+    </div>
+  </div>
+      </aside>
+    </div>
