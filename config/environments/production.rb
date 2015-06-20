@@ -82,15 +82,7 @@ Rails.application.configure do
   config.force_ssl = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'yellblog.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: "yellblog.herokuapp.com",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"]
-  }
+  config.action_mailer.default_url_options = { :host => 'yellblog.herokuapp.com' }
+
+
 end
