@@ -16,13 +16,16 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
     flash[:success] = "Entry deleted"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
   def show
-    
     @entry = current_entry
-    
+    if @entry.nil?
+      flash[:warning] = "Entry does not exist."
+      redirect_to root_url
+    end
+    # @comments = @entry.comments.all
   end
 
   def edit
@@ -41,7 +44,7 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:title, :content, :picture)
+    params.require(:entry).permit(:title, :content, :picture, :comment)
   end
 
   def correct_user

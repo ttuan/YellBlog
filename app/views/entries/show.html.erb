@@ -1,26 +1,29 @@
 <% provide(:title, current_entry.title) %>
+
 <div class="row" style="margin-top: 20px;">
   <aside class="col-md-offset-2 col-md-8">
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <% if current_user?(current_entry.user) %>
-        <%= render 'edit_entry_dropdown' %>
-      <% end %>
-      <h4 class="title" align="center"><%= current_entry.title %></h4>
-  <p align="center">
-    Posted <%= time_ago_in_words(current_entry.created_at) %> ago.
-  </p>
-    </div>
-    <div class="panel-body">
-      <!--<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>-->
-      <%= image_tag current_entry.picture.url if current_entry.picture? %>
-      <div id="clear-content">
-
-        <%= current_entry.content %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <% if current_user?(current_entry.user) %>
+          <%= render 'edit_entry_dropdown' %>
+        <% end %>
+        <h4 class="title" align="center"><%= current_entry.title %></h4>
+        <p align="center">
+          Posted <%= time_ago_in_words(current_entry.created_at) %> ago by <%= link_to current_entry.user.name, current_entry.user %>
+        </p>
       </div>
+      <div class="panel-body">
+      <!--<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>-->
+        <%= image_tag current_entry.picture.url if current_entry.picture? %>
+        <div id="clear-content">
+          <%= current_entry.content %>
+        </div>
+      </div><hr />
+      <% if current_entry.user.following?(current_user) || current_user == current_entry.user %>
+        <%= render 'comments/comment' %>
+      <% end %>  
+      <%= render 'comments/show_comment' %>
+    </div>
 
-    </div>
-  </div>
-      </aside>
-    </div>
+  </aside>
+</div>
