@@ -16,12 +16,15 @@
       <!--<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>-->
         <%= image_tag current_entry.picture.url if current_entry.picture? %>
         <div id="clear-content">
+          <pre>
           <%= current_entry.content %>
+          </pre>
         </div>
       </div><hr />
       <% if current_entry.user.following?(current_user) || current_user == current_entry.user %>
         <%= render 'comments/comment' %>
-      <% end %>  
+      <% end %> 
+      <p> &nbsp </p>
       <%= render 'comments/show_comment' %>
     </div>
 

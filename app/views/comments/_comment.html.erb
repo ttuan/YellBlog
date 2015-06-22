@@ -12,8 +12,11 @@
 <% if logged_in? %>
   <%= link_to gravatar_for(current_user , size: 50), current_user %>
   <%= form_for(@comment = Comment.new) do |f| %>
-    <%= f.text_field :content, placeholder: "Comment", class: "comment-box" %>
-    <%= f.submit "Post", class: "btn btn-default comment-post-button" %>
+    
+    <div class="col-md-11">
+      <%= f.text_field :content, placeholder: "Comment", class: "form-control comment-box" %>
+    </div>
+    <%#= f.submit "Post", class: "btn btn-default comment-post-button" %>
 
     <div class="field">
         <%= f.hidden_field :user_id, :value => current_user.id %>
